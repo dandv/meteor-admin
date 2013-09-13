@@ -4,5 +4,6 @@
   "homepage": "https://github.com/Pent/meteor-admin",
   "author": "Jonathan Pidgeon <jon@empire5design.com>",
   "version": "0.1",
-  "git": "https://github.com/Pent/meteor-admin.git"
+  "git": "https://github.com/Pent/meteor-admin.git",
+  "packages": {}
 }
