@@ -1,6 +1,8 @@
 Router.map(function() {
   this.route('admin', {
-    layout: 'adminLayout',
+    renderTemplates: {
+      'adminHeader': {to: 'header'}
+    },
     template: 'admin'
   });
 });

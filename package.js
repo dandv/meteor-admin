@@ -4,13 +4,14 @@ Package.describe({
 
 Package.on_use(function (api) {
   api.use(['accounts-base', 'accounts-password', 'underscore', 'standard-app-packages'], ['client','server']);
-  api.use(['bootstrap', 'jquery', 'iron-router'], 'client');
+  api.use(['bootstrap', 'jquery', 'less', 'iron-router'], 'client');
   api.add_files([
     'client/subscriptions.js'
     ,'client/routes.js'
-    ,'client/layouts.html'
     ,'client/views/admin/admin.html'
     ,'client/views/admin/admin.js'
+    ,'client/views/admin/header.html'
+    ,'client/views/admin/header.js'
     ,'client/views/admin/plans/plans.html'
     ,'client/views/admin/plans/plans.js'
     ,'client/views/admin/plans/plan.html'
