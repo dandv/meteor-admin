@@ -1,0 +1,1 @@
+plansHandler = Meteor.subscribe('plans');
