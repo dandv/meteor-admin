@@ -1,0 +1,44 @@
+<template name="editUser">
+  <div class="modal fade" id="editUser{{_id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">{{profile.name}} {{profile.surname}} <small>{{createdAt}}</small></h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" id="siteSettingsForm">
+            <div class="control-group">
+              <label class="control-label" for="username">Username</label>
+              <div class="controls">
+                <input type="text" id="username{{_id}}" name="username"  value="{{username}}" placeholder="Username">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="name">Name</label>
+              <div class="controls">
+                <input type="text" id="name{{_id}}" name="name"  value="{{profile.name}}" placeholder="Name">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="surname">Surname</label>
+              <div class="controls">
+                <input type="text" id="surname{{_id}}" name="surname"  value="{{profile.surname}}" placeholder="Surname">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="admin">Admin</label>
+              <div class="controls">
+                <input type="checkbox" id="admin{{_id}}" name="admin" {{#if admin}}checked{{/if}}>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" id="save" class="btn btn-primary">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+</template>

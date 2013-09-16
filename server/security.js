@@ -26,17 +26,40 @@ Meteor.methods({
  * @return boolean
  * @private
  */
+//todo broken
 _admin = function() {
-  if(_.isUndefined(this.userId)) { return false; }
-  var user = Meteor.users.findOne(this.userId);
-  return user.admin;
+  console.log('authing');
+  return Meteor.user() ? Meteor.user().admin : false;
 };
 
 /**
  * Security checks
  */
 Plans.allow({
-  insert: _admin(),
-  update: _admin(),
-  remove: _admin()
+  insert: function(userId, doc) {
+    var user = Meteor.users.findOne({_id: userId});
+    return user ? user.admin : false;
+  },
+  update: function(userId, doc, fieldNames, modifier) {
+    var user = Meteor.users.findOne({_id: userId});
+    return user ? user.admin : false;
+  },
+  remove: function(userId, doc) {
+    var user = Meteor.users.findOne({_id: userId});
+    return user ? user.admin : false;
+  }
+});
+Meteor.users.allow({
+  insert: function(userId, doc) {
+    var user = Meteor.users.findOne({_id: userId});
+    return user ? user.admin : false;
+  },
+  update: function(userId, doc, fieldNames, modifier) {
+    var user = Meteor.users.findOne({_id: userId});
+    return user ? user.admin : false;
+  },
+  remove: function(userId, doc) {
+    var user = Meteor.users.findOne({_id: userId});
+    return user ? user.admin : false;
+  }
 });

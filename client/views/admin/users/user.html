@@ -1,7 +1,17 @@
 <template name="user">
-  {{#if username}}
-    <li>{{username}}</li>
-  {{else}}
-    <li>{{profile.name}}</li>
-  {{/if}}
+  <tr>
+    <td>
+      {{username}}
+      {{#each emails}}
+        {{address}}
+      {{/each}}
+      {{profile.name}}
+      {{profile.surname}}
+      <button id="edit" class="btn btn-xs btn-primary">Edit</button>
+      <button id="remove" class="btn btn-xs btn-danger">Remove</button>
+    </td>
+  </tr>
+  {{#constant}}
+    {{>editUser}}
+  {{/constant}}
 </template>
