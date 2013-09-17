@@ -7,6 +7,7 @@ Package.on_use(function (api) {
   // warning: you must install these in your main project for this to actually work
   // todo: check for alternative solutions
   api.use(['bootstrap-3', 'accounts-ui-bootstrap-3', 'font-awesome', 'iron-router'], 'client');
+  api.use('bar', 'server');
   api.add_files([
     'client/subscriptions.js'
     ,'client/routes.js'
@@ -15,8 +16,6 @@ Package.on_use(function (api) {
     ,'client/views/admin/common/loading.html'
     ,'client/views/admin/admin.html'
     ,'client/views/admin/admin.js'
-    ,'client/views/admin/header.html'
-    ,'client/views/admin/header.js'
     ,'client/views/admin/configs/configs.html'
     ,'client/views/admin/configs/configs.js'
     ,'client/views/admin/configs/config.html'

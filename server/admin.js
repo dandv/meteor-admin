@@ -1,11 +1,5 @@
 Meteor.startup(function() {
-  //add to the config collection
-  //for use in defining navigation and other nice things
-  if(!Configs.findOne({name: 'admin'})) {
-    Configs.insert({
-      name: 'admin'
-    });
-  }
+  _addBar({name: 'admin', show: true});
 });
 
 var seed = function () {
