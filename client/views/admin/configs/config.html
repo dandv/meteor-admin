@@ -1,0 +1,15 @@
+<template name="config">
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label for="{{_id}}" class="col-md-4 control-label">{{name}}</label>
+      <div class="col-md-8">
+        <div class="input-group">
+          <input type="text" id="{{_id}}" name="{{name}}" value="{{value}}" class="form-control input-sm {{confirmed}}">
+          <span class="input-group-btn">
+            <button class="btn btn-danger btn-sm" id="{{_id}}" data-id="removeConfig" type="button">Remove</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </form>
+</template>

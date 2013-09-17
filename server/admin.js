@@ -1,22 +1,48 @@
+Meteor.startup(function() {
+  //add to the config collection
+  //for use in defining navigation and other nice things
+  if(!Configs.findOne({name: 'admin'})) {
+    Configs.insert({
+      name: 'admin'
+    });
+  }
+});
+
+var seed = function () {
+  Fakes.remove({});
+  for (var i = 0; i < 50; i++) {
+    Fakes.insert({body: 'Item ' + i});
+  }
+};
+
+Meteor.startup(seed);
+
+var Future = Npm.require('fibers/future');
+
+Meteor.publish('fakes', function () {
+  var future = new Future;
+
+  // simulate high latency publish function
+  Meteor.setTimeout(function () {
+    future.return(Fakes.find());
+  }, 2000);
+
+  return future.wait();
+});
+
 /**
  * Public methods for managing plans
  * @param document
  */
 Meteor.methods({
-  addPlan: function(document) {
-    if(_admin()) {
-      _addPlan(document);
-    }
+  addConfig: function(document) {
+    if(_admin()) _addConfig(document);
   },
-  updatePlan: function(document) {
-    if(_admin()) {
-      _updatePlan(document);
-    }
+  updateConfig: function(document) {
+    if(_admin()) _updateConfig(document);
   },
-  removePlan: function(document) {
-    if(_admin()) {
-      _removePlan(document);
-    }
+  removeConfig: function(document) {
+    if(_admin())  _removeConfig(document);
   }
 });
 
@@ -25,20 +51,17 @@ Meteor.methods({
  * @param document
  * @private
  */
-_addPlan = function(document) {
-  var check = Plans.findOne({name: document.name});
+_addConfig = function(document) {
+  var check = Configs.findOne({name: document.name});
   if(typeof check === 'undefined') {
-    Plans.insert({name: document.name, value: document.value, confirmed: !this.isSimulation});
+    Configs.insert({name: document.name, value: document.value});
   } else {
-    Plans.update({name: document.name}, {$set: { value: document.value, confirmed: !this.isSimulation }});
+    Configs.update({name: document.name}, {$set: { value: document.value}});
   }
 };
-_updatePlan = function(document) {
-  Plans.update({name: document.name}, {$set: {value: document.value, confirmed: !this.isSimulation}});
+_updateConfig = function(document) {
+  Configs.update({name: document.name}, {$set: {value: document.value}});
 };
-_removePlan = function(document) {
-  var check = Plans.findOne({name: document.name});
-  if(typeof check !== 'undefined') {
-    Plans.remove({name: document.name});
-  }
+_removeConfig = function(document) {
+  Configs.remove({_id: document.id});
 };

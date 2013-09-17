@@ -26,16 +26,14 @@ Meteor.methods({
  * @return boolean
  * @private
  */
-//todo broken
 _admin = function() {
-  console.log('authing');
   return Meteor.user() ? Meteor.user().admin : false;
 };
 
 /**
  * Security checks
  */
-Plans.allow({
+Configs.allow({
   insert: function(userId, doc) {
     var user = Meteor.users.findOne({_id: userId});
     return user ? user.admin : false;
@@ -49,6 +47,7 @@ Plans.allow({
     return user ? user.admin : false;
   }
 });
+
 Meteor.users.allow({
   insert: function(userId, doc) {
     var user = Meteor.users.findOne({_id: userId});
