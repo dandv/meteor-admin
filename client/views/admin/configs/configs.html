@@ -1,27 +1,25 @@
 <template name="configs">
-  <div class="panel">
-    <div class="panel-heading">
-      <h4 class="panel-title">Configurations</h4>
+  <h4>Configurations</h4>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <form class="form-inline pull-right">
+        <div class="form-group">
+          <label class="sr-only" for="name">Name</label>
+          <input type="text" id="name" name="{{name}}" value="{{name}}" placeholder="name" class="form-control input-sm {{confirmed}}">
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="value">Value</label>
+          <input type="text" id="value" name="{{value}}" value="{{value}}" placeholder="value" class="form-control input-sm {{confirmed}}">
+        </div>
+        <button class="btn btn-success btn-sm" id="addConfig" type="button">Add</button>
+      </form>
     </div>
-    <form class="form-horizontal">
-      <div class="form-group">
-        <div class="col-md-6">
-          <div class="input-group">
-            <input type="text" id="name" name="{{name}}" value="{{name}}" placeholder="name" class="form-control input-sm {{confirmed}}">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="input-group">
-            <input type="text" id="value" name="{{value}}" value="{{value}}" placeholder="value" class="form-control input-sm {{confirmed}}">
-            <span class="input-group-btn">
-              <button class="btn btn-success btn-sm" id="addConfig" type="button">Add</button>
-            </span>
-          </div>
-        </div>
-      </div>
-    </form>
-    {{#each configs}}
-      {{>config}}
-    {{/each}}
+  </div>
+  <div class="panel">
+    <div class="panel-body">
+      {{#each configs}}
+        {{>config}}
+      {{/each}}
+    </div>
   </div>
 </template>

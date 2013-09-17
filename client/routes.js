@@ -21,7 +21,7 @@ AdminController = RouteController.extend({
     });
 
     this.render({
-      header: { to: 'header', waitOn: false, data: false }
+      meteorbar: { to: 'meteorbar', waitOn: false, data: false }
     });
   }
 });

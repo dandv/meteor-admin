@@ -30,7 +30,7 @@ Package.on_use(function (api) {
     'lib/models.js'
     ], ['client','server']);
   api.add_files([
-    'server/admin.js'
+    'server/server.js'
     ,'server/publications.js'
     ,'server/security.js'
     ], 'server');

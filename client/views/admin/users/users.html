@@ -1,12 +1,12 @@
 <template name="users">
+  <h4>Users</h4>
   <div class="panel">
-    <div class="panel-heading">
-      <h4 class="panel-title">Users</h4>
+    <div class="panel-body">
+      <table class="table">
+        {{#each users}}
+          {{>user}}
+        {{/each}}
+      </table>
     </div>
-    <table class="table">
-      {{#each users}}
-        {{>user}}
-      {{/each}}
-    </table>
   </div>
 </template>

@@ -1,4 +1,5 @@
 Meteor.startup(function() {
+  //Meteor Bar integration
   _addBar({name: 'admin', show: true});
 });
 
@@ -19,7 +20,7 @@ Meteor.publish('fakes', function () {
   // simulate high latency publish function
   Meteor.setTimeout(function () {
     future.return(Fakes.find());
-  }, 2000);
+  }, 200);
 
   return future.wait();
 });
