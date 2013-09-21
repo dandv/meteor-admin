@@ -4,9 +4,9 @@ Package.describe({
 
 Package.on_use(function (api) {
   api.use(['accounts-base', 'accounts-password', 'standard-app-packages'], ['client','server']);
-  // warning: you must install these in your main project for this to actually work
-  // todo: check for alternative solutions
   api.use(['bootstrap-3', 'accounts-ui-bootstrap-3', 'font-awesome', 'iron-router'], 'client');
+  // must use imply so that the parent app can use routes without explicitly adding it
+  api.imply('iron-router');
   api.use('bar', 'server');
   api.add_files([
     'client/subscriptions.js'
@@ -15,7 +15,6 @@ Package.on_use(function (api) {
     ,'client/views/admin/common/notFound.html'
     ,'client/views/admin/common/loading.html'
     ,'client/views/admin/admin.html'
-    ,'client/views/admin/admin.js'
     ,'client/views/admin/configs/configs.html'
     ,'client/views/admin/configs/configs.js'
     ,'client/views/admin/configs/config.html'

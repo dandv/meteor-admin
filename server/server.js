@@ -3,28 +3,6 @@ Meteor.startup(function() {
   _addBar({name: 'admin', show: true});
 });
 
-var seed = function () {
-  Fakes.remove({});
-  for (var i = 0; i < 50; i++) {
-    Fakes.insert({body: 'Item ' + i});
-  }
-};
-
-Meteor.startup(seed);
-
-var Future = Npm.require('fibers/future');
-
-Meteor.publish('fakes', function () {
-  var future = new Future;
-
-  // simulate high latency publish function
-  Meteor.setTimeout(function () {
-    future.return(Fakes.find());
-  }, 200);
-
-  return future.wait();
-});
-
 /**
  * Public methods for managing plans
  * @param document

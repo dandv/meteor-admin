@@ -3,7 +3,8 @@
  * @return user
  */
 Accounts.onCreateUser(function(options, user) {
-  //assign default role
+  //if user is first user in db, assign as admin
+  //otherwise assign default role
   user.admin = Meteor.users.find().count() === 0;
   if(options.profile) {
     user.profile = options.profile;

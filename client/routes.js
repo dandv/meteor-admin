@@ -6,22 +6,20 @@ Router.map(function() {
 });
 
 AdminController = RouteController.extend({
+  template: 'admin',
   loadingTemplate: 'loading',
+  notFoundTemplate: 'notFound',
   waitOn: function() {
-    return Meteor.subscribe('fakes');
+    return Meteor.subscribe('allUsers');
   },
   customAction: function () {
     var self = this;
-    Meteor.call('admin', function(error, result) {
-      if(result) {
-        self.render('admin');
+    Meteor.call('admin', function(error, isAdmin) {
+      if(isAdmin) {
+        self.render();
       } else {
         self.render('notAuthorized');
       }
-    });
-
-    this.render({
-      meteorbar: { to: 'meteorbar', waitOn: false, data: false }
     });
   }
 });
