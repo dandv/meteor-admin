@@ -4,6 +4,8 @@ An easy-to-use interface for managing your Meteor app
 
 *Alpha version, currently unstable*
 
+Heavily depends on iron-router to function. Iron-router will be explicitly included in your project through api.imply.
+
 #Usage
 ##Conventions
 Call any of the below methods on the client using Meteor.call(), while an underscore is used to designate serverside methods
