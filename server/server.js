@@ -24,7 +24,7 @@ Meteor.methods({
  * @param document
  * @private
  */
-_addConfig = function(document) {
+var _addConfig = function(document) {
   var check = Configs.findOne({name: document.name});
   if(typeof check === 'undefined') {
     Configs.insert({name: document.name, value: document.value});
@@ -32,9 +32,9 @@ _addConfig = function(document) {
     Configs.update({name: document.name}, {$set: { value: document.value}});
   }
 };
-_updateConfig = function(document) {
+var _updateConfig = function(document) {
   Configs.update({name: document.name}, {$set: {value: document.value}});
 };
-_removeConfig = function(document) {
+var _removeConfig = function(document) {
   Configs.remove({_id: document.id});
 };

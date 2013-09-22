@@ -2,7 +2,7 @@
 
 An easy-to-use interface for managing your Meteor app
 
-*Alpha version, currently unstable*
+**Alpha version**
 
 Heavily depends on iron-router to function. Iron-router will be explicitly included in your project through api.imply.
 
@@ -11,14 +11,14 @@ Heavily depends on iron-router to function. Iron-router will be explicitly inclu
 Call any of the below methods on the client using Meteor.call(), while an underscore is used to designate serverside methods
 
 ##Authorization checks
-Meteor.call('admin'): check the current user for the admin flag *CLIENTSIDE*
-_admin(): check the current user for the admin flag *SERVERSIDE*
+* Meteor.call('admin'): check the current user for the admin flag *CLIENTSIDE*
+* _admin(): check the current user for the admin flag *SERVERSIDE*
 
 ##Configuration model
-Configurations are where you store app constants like server names or API keys.
-The document parameter should be an associative array containing name and value key/values. Name should be unique.
-addConfig(document): adds a configuration
-updateConfig(document): updates a configuration
-removeConfig(document): removes a configuration
+* Configurations are where you store app constants like server names or API keys.
+* The document parameter should be an associative array containing name and value key/values. Name should be unique.
+* addConfig(document): adds a configuration
+* updateConfig(document): updates a configuration
+* removeConfig(document): removes a configuration
 
 #MIT License

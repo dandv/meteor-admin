@@ -18,7 +18,7 @@ Accounts.onCreateUser(function(options, user) {
  */
 Meteor.methods({
   admin: function() {
-    return _admin();
+    return Meteor.user() ? Meteor.user().admin : false;
   }
 });
 
@@ -27,8 +27,9 @@ Meteor.methods({
  * @return boolean
  * @private
  */
-_admin = function() {
-  return Meteor.user() ? Meteor.user().admin : false;
+_admin = function(userId) {
+  var user = Meteor.users.findOne({_id: userId});
+  return user ? user.admin : false;
 };
 
 /**
@@ -36,30 +37,24 @@ _admin = function() {
  */
 Configs.allow({
   insert: function(userId, doc) {
-    var user = Meteor.users.findOne({_id: userId});
-    return user ? user.admin : false;
+    return _admin(userId);
   },
   update: function(userId, doc, fieldNames, modifier) {
-    var user = Meteor.users.findOne({_id: userId});
-    return user ? user.admin : false;
+    return _admin(userId);
   },
   remove: function(userId, doc) {
-    var user = Meteor.users.findOne({_id: userId});
-    return user ? user.admin : false;
+    return _admin(userId);
   }
 });
 
 Meteor.users.allow({
   insert: function(userId, doc) {
-    var user = Meteor.users.findOne({_id: userId});
-    return user ? user.admin : false;
+    return _admin(userId);
   },
   update: function(userId, doc, fieldNames, modifier) {
-    var user = Meteor.users.findOne({_id: userId});
-    return user ? user.admin : false;
+    return _admin(userId);
   },
   remove: function(userId, doc) {
-    var user = Meteor.users.findOne({_id: userId});
-    return user ? user.admin : false;
+    return _admin(userId);
   }
 });
