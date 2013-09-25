@@ -1,24 +1,24 @@
 Router.map(function() {
   this.route('admin', {
-    controller: 'AdminController',
-    action: 'customAction'
+    controller: 'AdminController'
   });
+  this.route('loginFullPath', { path: '/login' });
 });
 
 AdminController = RouteController.extend({
   template: 'admin',
-  loadingTemplate: 'loading',
-  notFoundTemplate: 'notFound',
+  loadingTemplate: 'adminLoading',
+  notFoundTemplate: 'adminNotFound',
   waitOn: function() {
     return Meteor.subscribe('allUsers');
   },
-  customAction: function () {
+  run: function () {
     var self = this;
     Meteor.call('admin', function(error, isAdmin) {
       if(isAdmin) {
         self.render();
       } else {
-        self.render('notAuthorized');
+        self.render('adminNotAuthorized');
       }
     });
   }

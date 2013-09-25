@@ -13,5 +13,5 @@ Meteor.publish('allUsers', function() {
   if(user && user.admin) {
     return Meteor.users.find({}, {fields: {username: 1, emails: 1, createdAt: 1, profile: 1, admin: 1}});
   }
-  return false;
+  return Meteor.users.find({_id: this.userId}, {fields: {username: 1, emails: 1, profile: 1, admin: 1}});
 });
