@@ -88,6 +88,26 @@
 //////////////////// LOGIN BUTTONS
 
 @login-buttons-accounts-dialog-width: 198px;
+
+// precendence of this selector is significant
+.accounts-dialog * {
+  // A base for our dialog CSS, to reset browser styles and protect against
+  // the app's CSS.  Dialogs include the dropdown, config modals, and the
+  // reset password modal.  We can't completely isolate the dialogs from
+  // the app's CSS, and that isn't the goal because the app can style them.
+  // This rule is a compromise that should take precedence over some very
+  // broad rules but be overridden by more specific ones.
+
+  // Add more declarations here if they help the dialogs look good
+  // out-of-the-box in more apps.
+
+  padding: 0;
+  margin: 0;
+  line-height: inherit;
+  color: inherit;
+  font: inherit;
+}
+
 #login-buttons {
 
   .display-inline-block();
@@ -124,7 +144,7 @@
   }
 }
 
-#login-buttons .login-button, .accounts-dialog .login-button {
+.login-button {
   cursor: pointer;
   .unselectable();
   padding: 4px 8px;
@@ -135,10 +155,9 @@
 
   text-align: center;
   color: #fff;
-  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
 
   @topColor: #8ca02d;
-  @bottomColor: darken(@topColor, 5%);
+  @bottomColor: darken(@topColor, 2%);
 
   .vertical-gradient(@topColor, @bottomColor);
   border-radius: 4px;
@@ -157,31 +176,12 @@
   }
 }
 
-// precendence of this selector is significant
-.accounts-dialog * {
-  // A base for our dialog CSS, to reset browser styles and protect against
-  // the app's CSS.  Dialogs include the dropdown, config modals, and the
-  // reset password modal.  We can't completely isolate the dialogs from
-  // the app's CSS, and that isn't the goal because the app can style them.
-  // This rule is a compromise that should take precedence over some very
-  // broad rules but be overridden by more specific ones.
-
-  // Add more declarations here if they help the dialogs look good
-  // out-of-the-box in more apps.
-
-  padding: 0;
-  margin: 0;
-  line-height: inherit;
-  color: inherit;
-  font: inherit;
-}
-
-.accounts-dialog .login-button {
+.accounts-dialog .login-button, #login-full-page .login-button {
   width: auto;
   margin-bottom: 4px;
 }
 
-#login-buttons {
+#login-buttons, #login-full-page {
   .login-buttons-padding {
     display: inline-block;
     width: 30px;
@@ -262,8 +262,7 @@
 @meteor-accounts-base-padding: 8px;
 @meteor-accounts-dialog-border-width: 1px;
 
-.accounts-dialog {
-  border: @meteor-accounts-dialog-border-width solid #777;
+.accounts-dialog, #login-full-page {
   z-index: 1000;
   background: white;
 
@@ -431,3 +430,21 @@
     line-height: 1;
   }
 }
+
+#login-full-page {
+  .make-md-column(3);
+  float: none !important;
+  margin: 0 auto;
+  input[type=text], input[type=email], input[type=password] {
+    padding: 24px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    line-height: 1;
+    margin: 14px 0;
+  }
+  .login-button {
+    font-size: 100%;
+    line-height: 3.5;
+  }
+}
+

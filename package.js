@@ -3,7 +3,7 @@ Package.describe({
 });
 
 Package.on_use(function (api) {
-  api.use(['standard-app-packages', 'accounts-base', 'accounts-password', 'npm'], ['client','server']);
+  api.use(['standard-app-packages', 'accounts-base', 'accounts-password', 'accounts-ui-unstyled', 'npm'], ['client','server']);
   api.use(['iron-router', 'font-awesome', 'accounts-ui-unstyled', 'less', 'bootstrap3-less'], 'client');
   // must use imply so that the parent app can use routes without explicitly adding it
   api.imply(['iron-router', 'standard-app-packages', 'accounts-ui-unstyled', 'accounts-base', 'accounts-password', 'font-awesome', 'bootstrap3-less']);
@@ -12,6 +12,7 @@ Package.on_use(function (api) {
     'client/subscriptions.js'
     ,'client/routes.js'
     ,'client/views/admin/accounts/loginFullPage.html'
+    ,'client/views/admin/accounts/loginFullPage.js'
     ,'client/views/admin/common/notAuthorized.html'
     ,'client/views/admin/common/notFound.html'
     ,'client/views/admin/common/loading.html'
