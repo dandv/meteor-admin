@@ -1,10 +1,10 @@
 #meteor-admin
 
-An easy-to-use interface for managing your Meteor app
+An easy-to-use interface for managing your Meteor app.
 
 **Alpha version**
 
-Heavily depends on iron-router to function. Iron-router will be explicitly included in your project through api.imply.
+Heavily depends on standard-app-packages, accounts-base, accounts-password, accounts-ui-unstyled, font-awesome, iron-router, bootstrap3-less to function. The packages will be explicitly included in your project through api.imply.
 
 #Usage
 ##Conventions

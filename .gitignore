@@ -24,3 +24,4 @@ smart.lock
 .npm
 .git
 .build*
+bower_components/

@@ -2,7 +2,7 @@ Router.map(function() {
   this.route('admin', {
     controller: 'AdminController'
   });
-  this.route('loginFullPath', { path: '/login' });
+  this.route('_loginButtonsLoggedOutSingleLoginButton', { path: '/login' });
 });
 
 AdminController = RouteController.extend({

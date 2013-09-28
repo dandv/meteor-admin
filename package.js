@@ -3,19 +3,20 @@ Package.describe({
 });
 
 Package.on_use(function (api) {
-  api.use(['accounts-base', 'accounts-password', 'standard-app-packages', 'less'], ['client','server']);
-  api.use(['bootstrap-3', 'accounts-ui-unstyled', 'font-awesome', 'iron-router'], 'client');
+  api.use(['standard-app-packages', 'accounts-base', 'accounts-password', 'npm'], ['client','server']);
+  api.use(['iron-router', 'font-awesome', 'accounts-ui-unstyled', 'less', 'bootstrap3-less'], 'client');
   // must use imply so that the parent app can use routes without explicitly adding it
-  api.imply('iron-router');
+  api.imply(['iron-router', 'standard-app-packages', 'accounts-ui-unstyled', 'accounts-base', 'accounts-password', 'font-awesome', 'bootstrap3-less']);
   api.use('bar', 'server');
   api.add_files([
     'client/subscriptions.js'
     ,'client/routes.js'
+    ,'client/views/admin/accounts/loginFullPage.html'
     ,'client/views/admin/common/notAuthorized.html'
     ,'client/views/admin/common/notFound.html'
     ,'client/views/admin/common/loading.html'
-    ,'client/views/admin/common/loginFullPage.html'
     ,'client/views/admin/admin.html'
+    ,'client/views/admin/admin.js'
     ,'client/views/admin/configs/configs.html'
     ,'client/views/admin/configs/configs.js'
     ,'client/views/admin/configs/config.html'
@@ -25,6 +26,7 @@ Package.on_use(function (api) {
     ,'client/views/admin/users/users.js'
     ,'client/views/admin/users/user.html'
     ,'client/views/admin/users/user.js'
+    ,'client/styles/admin.less'
     ], 'client');
   api.add_files([
     'lib/collections.js'
