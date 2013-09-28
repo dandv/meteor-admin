@@ -11,25 +11,25 @@
             <div class="control-group">
               <label class="control-label" for="username">Username</label>
               <div class="controls">
-                <input type="text" id="username{{_id}}" name="username"  value="{{username}}" placeholder="Username">
+                <input type="text" class="form-control" id="username{{_id}}" name="username"  value="{{username}}" placeholder="Username">
               </div>
             </div>
             <div class="control-group">
               <label class="control-label" for="name">Name</label>
               <div class="controls">
-                <input type="text" id="name{{_id}}" name="name"  value="{{profile.name}}" placeholder="Name">
+                <input type="text" class="form-control" id="name{{_id}}" name="name"  value="{{profile.name}}" placeholder="Name">
               </div>
             </div>
             <div class="control-group">
               <label class="control-label" for="surname">Surname</label>
               <div class="controls">
-                <input type="text" id="surname{{_id}}" name="surname"  value="{{profile.surname}}" placeholder="Surname">
+                <input type="text" class="form-control" id="surname{{_id}}" name="surname"  value="{{profile.surname}}" placeholder="Surname">
               </div>
             </div>
             <div class="control-group">
               <label class="control-label" for="admin">Admin</label>
               <div class="controls">
-                <input type="checkbox" id="admin{{_id}}" name="admin" {{#if admin}}checked{{/if}}>
+                <input type="checkbox" class="form-control" id="admin{{_id}}" name="admin" {{#if admin}}checked{{/if}}>
               </div>
             </div>
           </form>
