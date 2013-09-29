@@ -1,8 +1,3 @@
-Meteor.startup(function() {
-  //Meteor Bar integration
-  _addBar({name: 'admin', show: true});
-});
-
 /**
  * Public methods for managing plans
  * @param document

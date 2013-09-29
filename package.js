@@ -3,11 +3,10 @@ Package.describe({
 });
 
 Package.on_use(function (api) {
-  api.use(['standard-app-packages', 'accounts-base', 'accounts-password', 'accounts-ui-unstyled', 'npm'], ['client','server']);
-  api.use(['iron-router', 'font-awesome', 'accounts-ui-unstyled', 'less', 'bootstrap3-less'], 'client');
+  api.use(['standard-app-packages', 'accounts-base', 'accounts-password', 'accounts-ui-unstyled'], ['client','server']);
+  api.use(['accounts-ui-unstyled', 'iron-router', 'font-awesome', 'less', 'bootstrap3-less'], 'client');
   // must use imply so that the parent app can use routes without explicitly adding it
-  api.imply(['iron-router', 'standard-app-packages', 'accounts-ui-unstyled', 'accounts-base', 'accounts-password', 'font-awesome', 'bootstrap3-less']);
-  api.use('bar', 'server');
+  api.imply(['standard-app-packages', 'accounts-base', 'accounts-password', 'accounts-ui-unstyled', 'iron-router', 'font-awesome', 'less', 'bootstrap3-less']);
   api.add_files([
     'client/subscriptions.js'
     ,'client/routes.js'
