@@ -1,0 +1,22 @@
+<template name="changeFullPage">
+  <div class="container">
+    <div class="megatron">
+      <div class="row">
+        <div class="col-sm-12">
+          {{>alerts}}
+          {{>change}}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+
+<template name="change">
+  <div class="form">
+    {{#each fields}}
+      {{>field}}
+    {{/each}}
+    <button>Change Password</button>
+  </div>
+</template>

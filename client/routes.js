@@ -1,16 +1,22 @@
 Router.map(function() {
-  this.route('admin', {
-    controller: 'AdminController'
-  });
-  this.route('adminLoginFullPage', { path: '/login' });
+  this.route('loginFullPage', { path: '/login' });
+  this.route('registerFullPage', { path: '/register' });
+  this.route('forgotFullPage', { path: '/forgot' });
+  this.route('changeFullPage', { path: '/change' });
+  //todo fix screen flash and templates not being DRY
+  this.route('dash', { path: '/admin', controller: 'AdminController' });
+  this.route('users', { path: '/admin/users', controller: 'AdminController' });
+  this.route('configs', { path: '/admin/configs', controller: 'AdminController' });
 });
 
 AdminController = RouteController.extend({
-  template: 'admin',
   loadingTemplate: 'adminLoading',
   notFoundTemplate: 'adminNotFound',
   waitOn: function() {
     return Meteor.subscribe('allUsers');
+  },
+  data: function() {
+    return 'users';
   },
   run: function () {
     var self = this;

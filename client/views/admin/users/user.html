@@ -1,17 +1,17 @@
 <template name="user">
-  <tr>
-    <td class="col-md-1">
-      {{#if admin}}<i class="glyphicon glyphicon-fire" title="admin"></i>{{/if}}
+  <tr {{#if admin}}class="admin"{{/if}}>
+    <td class="col-md-3">
+      <ul>
+      {{#each emails}}
+        <li>{{address}}</li>
+      {{/each}}
+      </ul>
+    </td>
+    <td class="col-md-2">
       {{username}}
     </td>
-    <td class="col-md-3">
-      {{#each emails}}
-        {{address}}
-      {{/each}}
-    </td>
-    <td class="col-md-3">
+    <td class="col-md-2">
       {{profile.name}}
-      {{profile.surname}}
     </td>
     <td class="col-md-5">
       <button id="edit" class="btn btn-primary btn-sm">Edit</button>

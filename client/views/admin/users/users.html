@@ -1,12 +1,17 @@
-<template name="users">
-  <h4>Users</h4>
-  <div class="panel">
-    <div class="panel-body">
-      <table class="table">
-        {{#each users}}
-          {{>user}}
-        {{/each}}
-      </table>
-    </div>
-  </div>
+<template name="listUsers">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Emails</th>
+      <th>Username</th>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each users}}
+      {{>user}}
+    {{/each}}
+    </tbody>
+  </table>
 </template>

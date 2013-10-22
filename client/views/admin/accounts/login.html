@@ -1,0 +1,26 @@
+<template name="loginFullPage">
+  <div class="container">
+    <div class="megatron">
+      <div class="row">
+        <div class="col-sm-12">
+          {{>alerts}}
+          {{>login}}
+        </div>
+        <div class="col-sm-12">
+          <a href="/register">Register</a>
+          <div class="text-right"><a href="/forgot">Forgot Password</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+
+<template name="login">
+  <div class="form">
+    {{#each fields}}
+      {{>field}}
+    {{/each}}
+    <button>Login</button>
+  </div>
+</template>

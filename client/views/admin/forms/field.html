@@ -1,0 +1,10 @@
+<template name="field">
+  {{#if visible}}
+  <div class="field field-{{fieldName}}">
+    <label id="{{fieldName}}-label" class="hidden" for="{{fieldName}}">
+      {{fieldLabel}}
+    </label>
+    <input id="{{fieldName}}" type="{{inputType}}" placeholder="{{fieldName}}">
+  </div>
+  {{/if}}
+</template>

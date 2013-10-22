@@ -14,7 +14,6 @@ Template.editUser.events({
       username: $('#username'+this._id).val()
       ,profile: {
         name: $('#name'+this._id).val()
-        ,surname: $('#surname'+this._id).val()
       }
       ,admin: $('#admin'+this._id).is(':checked')
     };

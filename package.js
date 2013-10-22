@@ -3,15 +3,28 @@ Package.describe({
 });
 
 Package.on_use(function (api) {
-  api.use(['standard-app-packages', 'accounts-base', 'accounts-password', 'accounts-ui-unstyled'], ['client','server']);
-  api.use(['accounts-ui-unstyled', 'iron-router', 'font-awesome', 'less', 'bootstrap3-less'], 'client');
+  api.use(['standard-app-packages', 'accounts-base', 'accounts-password'], ['client','server']);
+  api.use(['iron-router', 'font-awesome', 'less', 'bootstrap3-less', 'alert'], 'client');
   // must use imply so that the parent app can use routes without explicitly adding it
-  api.imply(['standard-app-packages', 'accounts-base', 'accounts-password', 'accounts-ui-unstyled', 'iron-router', 'font-awesome', 'less', 'bootstrap3-less']);
+//  api.imply(['standard-app-packages', 'accounts-base', 'accounts-password', 'accounts-ui-unstyled', 'iron-router', 'font-awesome', 'less', 'bootstrap3-less']);
   api.add_files([
     'client/subscriptions.js'
     ,'client/routes.js'
-    ,'client/views/admin/accounts/loginFullPage.html'
-    ,'client/views/admin/accounts/loginFullPage.js'
+    ,'client/views/admin/forms/field.html'
+    ,'client/views/admin/accounts/buttons.html'
+    ,'client/views/admin/accounts/buttons.js'
+    ,'client/views/admin/accounts/forgot.html'
+    ,'client/views/admin/accounts/forgot.js'
+    ,'client/views/admin/accounts/login.html'
+    ,'client/views/admin/accounts/login.js'
+    ,'client/views/admin/accounts/register.html'
+    ,'client/views/admin/accounts/register.js'
+    ,'client/views/admin/accounts/combo.html'
+    ,'client/views/admin/accounts/combo.js'
+    ,'client/views/admin/accounts/change.html'
+    ,'client/views/admin/accounts/change.js'
+    ,'client/views/admin/accounts/options.html'
+    ,'client/views/admin/accounts/options.js'
     ,'client/views/admin/common/notAuthorized.html'
     ,'client/views/admin/common/notFound.html'
     ,'client/views/admin/common/loading.html'
@@ -27,9 +40,11 @@ Package.on_use(function (api) {
     ,'client/views/admin/users/user.html'
     ,'client/views/admin/users/user.js'
     ,'client/styles/admin.less'
+    ,'public/images/bg.jpg'
     ], 'client');
   api.add_files([
-    'lib/collections.js'
+    'lib/utility.js'
+    ,'lib/collections.js'
     ], ['client','server']);
   api.add_files([
     'server/server.js'
