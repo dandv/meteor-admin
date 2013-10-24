@@ -8,7 +8,7 @@
         </div>
         <div class="col-sm-12">
           <a href="/login">Login</a>
-          <div class="text-right"><a href="/register">Register</a></div>
+          <div class="pull-right text-right"><a href="/register">Register</a></div>
         </div>
       </div>
     </div>
@@ -17,10 +17,10 @@
 
 
 <template name="forgot">
-  <div class="form">
+  <div class="form-admin">
     {{#each fields}}
       {{>field}}
     {{/each}}
-    <button>Reset Password</button>
+    <button class="btn-admin">Reset Password</button>
   </div>
 </template>

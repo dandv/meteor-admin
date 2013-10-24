@@ -8,122 +8,118 @@
   width:100%;
   background: @brand-admin;
   color: #eee;
+}
+a {
+  color: #222;
+  &:hover {
+    color: #333;
+  }
+}
+.navbar-admin {
+  margin-bottom: 0 !important;
+  background: @brand-admin;
+  border-bottom: 3px solid #bbb;
+  .nav > li > a {
+    &:hover, &:focus, &:active {
+      color: #222;
+      background: #eee;
+    }
+  }
+}
+.megatron {
+  box-sizing: border-box;
+  margin: auto;
+  width: 300px;
+  overflow: hidden;
   a {
-    color: #222;
-    &:hover {
-      color: #333;
-    }
-  }
-  .navbar-admin {
-    margin-bottom: 0 !important;
-    background: @brand-admin;
-    border-bottom: 3px solid #bbb;
-    .nav > li > a {
-      &:hover, &:focus, &:active {
-        color: #222;
-        background: #eee;
-      }
-    }
-  }
-  .megatron {
-    box-sizing: border-box;
-    padding: 60px;
-    width: 30%;
-    margin: auto;
-    a {
-      font-size: 0.7em;
-  }
-  }
-  .jumboboom {
-    background: darken(@brand-admin, 5%);
-    padding-top: 20px;
-    margin-bottom: 20px;
-    height: 70px;
-    border-bottom: 3px solid #ccc;
-    h1 {
-      font-size: 1.3em;
-      text-transform: uppercase;
-  }
-  }
-  .text-right {
-    float: right;
-    text-align: right;
-  }
-  .form {
-    background: #222;
-    .field {
-      input[type="text"], input[type="email"], input[type="password"] {
-        width: 100%;
-        padding: 15px;
-        line-height: 1;
-        font-size: 1.3em;
-        border: 1px solid #eee;
-        &:focus,
-        &:active {
-          outline: none;
-      }
-    }
+    font-size: 0.7em;
   }
 
-  button {
-    .btn;
-    .btn-primary;
-    width: 100%;
-    font-size: 1em;
-    border-radius: 0;
+}
+.jumboboom {
+  background: darken(@brand-admin, 5%);
+  padding-top: 20px;
+  margin-bottom: 20px;
+  height: 70px;
+  border-bottom: 3px solid #ccc;
+  h1 {
+    font-size: 1.3em;
     text-transform: uppercase;
-    &:hover {
-    }
-    &:active,
-    &:focus {
-      outline: none;
+  }
+}
+
+.form-admin {
+  background: #222;
+  width: 300px;
+  .field {
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 15px;
+      line-height: 1;
+      font-size: 1.3em;
+      border: 1px solid #eee;
+      &:focus,
+      &:active {
+        outline: none;
+      }
     }
   }
-  .btn-half {
-    width: 50%;
+}
+.btn-admin {
+  .btn;
+  .btn-primary;
+  width: 100%;
+  font-size: 1em;
+  border-radius: 0;
+  text-transform: uppercase;
+  &:hover {
   }
+  &:active,
+  &:focus {
+    outline: none;
   }
-  .navbar .form {
-    width: 300px;
+}
+.btn-half {
+  width: 50%;  
+}
+
+.user-block {
+  background: #eee;
+  color: #222;
+  margin: 5px 0;
+  .user-avatar {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
   }
-  .user-block {
-    background: #eee;
-    color: #222;
-    margin: 5px 0;
-    .user-avatar {
-      display: inline-block;
-      width: 40px;
-      height: 40px;
-    }
-    .user-emails {
-      display: inline-block;
-      width: 30%;
-      height: 40px;
-      border-left: 1px solid #ccc;
-      border-right: 1px solid #ccc;
-      padding: 10px;
-    }
-    .user-username {
-      display: inline-block;
-      width: 20%;
-      height: 40px;
-      border-right: 1px solid #ccc;
-      padding: 10px;
-    }
-    .user-name {
-      display: inline-block;
-      width: 20%;
-      height: 40px;
-      padding: 10px;
-      font-style: italic;
-    }
-    .actions {
-      padding: 20px;
-      height: 70px;
-      display: inline-block;
-      text-align: right;
-      background: #ccc;
-    }
+  .user-emails {
+    display: inline-block;
+    width: 30%;
+    height: 40px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    padding: 10px;
+  }
+  .user-username {
+    display: inline-block;
+    width: 20%;
+    height: 40px;
+    border-right: 1px solid #ccc;
+    padding: 10px;
+  }
+  .user-name {
+    display: inline-block;
+    width: 20%;
+    height: 40px;
+    padding: 10px;
+    font-style: italic;
+  }
+  .actions {
+    padding: 20px;
+    height: 70px;
+    display: inline-block;
+    text-align: right;
+    background: #ccc;
   }
 }
 

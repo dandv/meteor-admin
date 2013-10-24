@@ -3,9 +3,9 @@ Router.map(function() {
   this.route('registerFullPage', { path: '/register' });
   this.route('forgotFullPage', { path: '/forgot' });
   this.route('changeFullPage', { path: '/change' });
-  //todo fix screen flash and templates not being DRY
   this.route('users', { path: '/admin', controller: 'AdminController' });
   this.route('configs', { path: '/admin/configs', controller: 'AdminController' });
+  this.route('home', { path: '/' });
 });
 
 AdminController = RouteController.extend({
@@ -23,6 +23,7 @@ AdminController = RouteController.extend({
       if(isAdmin) {
         self.render();
       } else {
+        throwAlert('Please login to proceed', 'info');
         self.render('adminNotAuthorized');
       }
     });

@@ -12,17 +12,19 @@ Template.login.fields = function () {
   }];
 };
 Template.login.events({
-  'click button': function () {
+  'click button, keyup input': function () {
     if (event.type === 'click' || (event.type === 'keyup' && event.which === 13)) {
-      var loginSelector = trimmedElementValueById('username') || trimmedElementValueById('email');
+      var loginSelector = trimmedElementValueById('username') || { email: trimmedElementValueById('email') };
+      console.log(loginSelector);
       var password = elementValueById('password');
+      console.log(password);
       Meteor.loginWithPassword(loginSelector, password, function(error, result) {
         if(error) {
-          throwAlert(error.reason || "Unknown error", 'error');
+          throwAlert(error.reason || "Unknown error", 'danger');
         } else {
           throwAlert('Successfully logged in', 'info');
           if(isAdmin) {
-            Router.go('dash');
+            Router.go('users');
           } else {
             Router.go('home');
           }

@@ -17,9 +17,27 @@ Template.combo.events({
     var password = '';
     Meteor.loginWithPassword(loginSelector, password, function(error, result) {
       if(error) {
-        Session.set('alert', error.reason || 'Unknown error');
+        throwAlert(error.reason || 'Unknown error', 'danger');
       } else {
         Session.set('dropdown', undefined);
+      }
+    });
+  },
+  'click #register': function () {
+    var options = {
+      email: trimmedElementValueById('email')
+      ,password: elementValueById('password')
+    };
+    Accounts.createUser(options, function(error, result){
+      if(error) {
+        throwAlert(error.reason || "Unknown error", 'danger');
+      } else {
+        throwAlert('Successfully registered', 'info');
+        if(isAdmin) {
+          Router.go('users');
+        } else {
+          Router.go('home');
+        }
       }
     });
   }

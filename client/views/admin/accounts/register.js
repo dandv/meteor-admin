@@ -20,11 +20,11 @@ Template.register.events({
       };
       Accounts.createUser(options, function(error, result){
         if(error) {
-          throwAlert(error.reason || "Unknown error", 'error');
+          throwAlert(error.reason || "Unknown error", 'danger');
         } else {
           throwAlert('Successfully registered', 'info');
           if(isAdmin) {
-            Router.go('dash');
+            Router.go('users');
           } else {
             Router.go('home');
           }

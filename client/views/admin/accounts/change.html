@@ -1,4 +1,5 @@
 <template name="changeFullPage">
+<div class="admin">
   <div class="container">
     <div class="megatron">
       <div class="row">
@@ -9,14 +10,15 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 
 <template name="change">
-  <div class="form">
+  <div class="form-admin">
     {{#each fields}}
       {{>field}}
     {{/each}}
-    <button>Change Password</button>
+    <button class="btn-admin">Change Password</button>
   </div>
 </template>

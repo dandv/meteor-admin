@@ -14,10 +14,10 @@ Template.forgot.events({
       };
       Accounts.forgotPassword(options, function(error, result) {
         if(error) {
-          throwAlert(error.reason || "Unknown error", 'error');
+          throwAlert(error.reason || "Unknown error", 'danger');
         } else {
           throwAlert('You should receive an email shortly with instructions for changing your password', 'info');
-          Router.go('admin');
+          Router.go('home');
         }
       });
     }
