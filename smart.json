@@ -3,7 +3,7 @@
   "description": "An easy-to-use interface for managing your Meteor app",
   "homepage": "https://github.com/Pent/meteor-admin",
   "author": "Jonathan Pidgeon <jon@empire5design.com>",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "git": "https://github.com/Pent/meteor-admin.git",
   "packages": {
     "bootstrap3-less": {},
