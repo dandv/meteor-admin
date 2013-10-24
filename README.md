@@ -11,6 +11,7 @@ Heavily depends on standard-app-packages, accounts-base, accounts-password, iron
 * Semantic as hell markup for ease of custom styling
 * Task-focused interface for managing user accounts
 * Simple to implement user account roles
+* Collection management through a simple api
 
 #Todo
 
@@ -26,16 +27,24 @@ Call any of the below methods on the client using Meteor.call(), while an unders
 
 ##Authorization checks
 
+###Clientside
+
 ```
 Meteor.user() ? Meteor.user().admin : false
 ```
-* check the current user for the admin flag *CLIENTSIDE*
-* _admin(userId): check the userId for the admin flag *SERVERSIDE*
+
+###Serverside
+
+* _admin(userId): check the userId for the admin flag 
 
 ##Configuration model
 
 * Configurations are where you store app constants like server names or API keys.
-* The document parameter should be an associative array containing name and value key/values. Name should be unique.
+
+```
+document = { name: 'imgurApiKey', value: 'asdf1234567890' }
+```
+
 * addConfig(document): adds a configuration
 * updateConfig(document): updates a configuration
 * removeConfig(document): removes a configuration

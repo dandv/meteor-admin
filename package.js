@@ -52,7 +52,8 @@ Package.on_use(function (api) {
     ,'server/security.js'
     ], 'server');
   api.export([
-    ,'AdminController'
+    'AdminController'
+    ,'ConfigsController'
   ], 'client');
   api.export([
     '_admin'

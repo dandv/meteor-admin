@@ -1,10 +1,10 @@
-Template.configs.helpers({
+Template.listConfigs.helpers({
   configs: function() {
     return Configs.find();
   }
 });
 
-Template.configs.events({
+Template.listConfigs.events({
   //generic call meteor server method, name of method is based on button id
   'click button, keyup input': function(event, template) {
     if (event.type === 'click' || (event.type === 'keyup' && event.which === 13)) {

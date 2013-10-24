@@ -1,1 +1,0 @@
-configsHandler = Meteor.subscribe('configs');

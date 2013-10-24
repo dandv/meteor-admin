@@ -1,5 +1,9 @@
 Meteor.publish('configs', function() {
-  return Configs.find();
+  var user = Meteor.users.findOne({_id: this.userId});
+  if(user && user.admin) {
+    return Configs.find();
+  }
+  return false;
 });
 
 /**

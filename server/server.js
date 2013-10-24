@@ -1,21 +1,21 @@
 /**
- * Public methods for managing plans
+ * Public methods for managing configs
  * @param document
  */
 Meteor.methods({
   addConfig: function(document) {
-    if(_admin()) _addConfig(document);
+    if(_admin(this.userId)) _addConfig(document);
   },
   updateConfig: function(document) {
-    if(_admin()) _updateConfig(document);
+    if(_admin(this.userId)) _updateConfig(document);
   },
   removeConfig: function(document) {
-    if(_admin())  _removeConfig(document);
+    if(_admin(this.userId)) _removeConfig(document);
   }
 });
 
 /**
- * Private methods for managing plans
+ * Private methods for managing configs
  * @param document
  * @private
  */

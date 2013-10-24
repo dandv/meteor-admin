@@ -1,7 +1,7 @@
 <template name="config">
-  <form class="form-horizontal">
+  <div class="form-horizontal">
     <div class="form-group">
-      <label for="{{_id}}" class="col-md-4 control-label">{{name}}</label>
+      <label for="{{_id}}" class="col-md-4 control-label text-primary">{{name}}</label>
       <div class="col-md-8">
         <div class="input-group">
           <input type="text" id="{{_id}}" name="{{name}}" value="{{value}}" class="form-control input-sm {{confirmed}}">
@@ -11,5 +11,5 @@
         </div>
       </div>
     </div>
-  </form>
+  </div>
 </template>
