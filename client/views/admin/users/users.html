@@ -1,17 +1,7 @@
 <template name="listUsers">
-  <table class="table">
-    <thead>
-    <tr>
-      <th>Emails</th>
-      <th>Username</th>
-      <th>Name</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    {{#each users}}
-      {{>user}}
-    {{/each}}
-    </tbody>
-  </table>
+<div class="users">
+  {{#each users}}
+  {{>user}}
+  {{/each}}
+</div>
 </template>

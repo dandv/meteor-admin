@@ -1,49 +1,66 @@
 @import "/packages/bootstrap3-less/bootstrap.lessimport";
 
-@brand-admin: #124bbe;
+@brand-admin: #ddd;
 
 .admin {
-  background-color: #f0eccf;
-}
-.navbar {
-  margin-bottom: 0 !important;
-}
-.megatron {
-  box-sizing: border-box;
-  padding: 60px;
-  width: 30%;
-  margin: auto;
+  float: left;
+  min-height:100%;
+  width:100%;
+  background: @brand-admin;
+  color: #eee;
   a {
-    font-size: 0.7em;
+    color: #222;
+    &:hover {
+      color: #333;
+    }
   }
-}
-.jumboboom {
-  color: #fff;
-  background: @brand-primary;
-  background: url(/packages/admin/public/images/bg.jpg) repeat;
-  padding-top: 20px;
-  margin-bottom: 20px;
-  height: 70px;
-  h1 {
-    font-size: 1.3em;
-    text-transform: uppercase;
+  .navbar-admin {
+    margin-bottom: 0 !important;
+    background: @brand-admin;
+    border-bottom: 3px solid #bbb;
+    .nav > li > a {
+      &:hover, &:focus, &:active {
+        color: #222;
+        background: #eee;
+      }
+    }
   }
-}
-.text-right {
-  float: right;
-  text-align: right;
-}
-.form {
-  .field {
-    input[type="text"], input[type="email"], input[type="password"] {
-      width: 100%;
-      padding: 15px;
-      line-height: 1;
+  .megatron {
+    box-sizing: border-box;
+    padding: 60px;
+    width: 30%;
+    margin: auto;
+    a {
+      font-size: 0.7em;
+  }
+  }
+  .jumboboom {
+    background: darken(@brand-admin, 5%);
+    padding-top: 20px;
+    margin-bottom: 20px;
+    height: 70px;
+    border-bottom: 3px solid #ccc;
+    h1 {
       font-size: 1.3em;
-      border: 1px solid #eee;
-      &:focus,
-      &:active {
-        outline: none;
+      text-transform: uppercase;
+  }
+  }
+  .text-right {
+    float: right;
+    text-align: right;
+  }
+  .form {
+    background: #222;
+    .field {
+      input[type="text"], input[type="email"], input[type="password"] {
+        width: 100%;
+        padding: 15px;
+        line-height: 1;
+        font-size: 1.3em;
+        border: 1px solid #eee;
+        &:focus,
+        &:active {
+          outline: none;
       }
     }
   }
@@ -65,8 +82,50 @@
   .btn-half {
     width: 50%;
   }
+  }
+  .navbar .form {
+    width: 300px;
+  }
+  .user-block {
+    background: #eee;
+    color: #222;
+    margin: 5px 0;
+    .user-avatar {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+    }
+    .user-emails {
+      display: inline-block;
+      width: 30%;
+      height: 40px;
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      padding: 10px;
+    }
+    .user-username {
+      display: inline-block;
+      width: 20%;
+      height: 40px;
+      border-right: 1px solid #ccc;
+      padding: 10px;
+    }
+    .user-name {
+      display: inline-block;
+      width: 20%;
+      height: 40px;
+      padding: 10px;
+      font-style: italic;
+    }
+    .actions {
+      padding: 20px;
+      height: 70px;
+      display: inline-block;
+      text-align: right;
+      background: #ccc;
+    }
+  }
 }
-.navbar .form {
-  width: 300px;
-}
+
+
 

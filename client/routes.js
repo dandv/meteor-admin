@@ -4,8 +4,7 @@ Router.map(function() {
   this.route('forgotFullPage', { path: '/forgot' });
   this.route('changeFullPage', { path: '/change' });
   //todo fix screen flash and templates not being DRY
-  this.route('dash', { path: '/admin', controller: 'AdminController' });
-  this.route('users', { path: '/admin/users', controller: 'AdminController' });
+  this.route('users', { path: '/admin', controller: 'AdminController' });
   this.route('configs', { path: '/admin/configs', controller: 'AdminController' });
 });
 

@@ -7,6 +7,18 @@ Template.user.events({
   }
 });
 
+Template.user.helpers({
+  username: function() {
+    return this.username || 'unknown';
+  },
+  profilename: function() {
+    if(this.profile && this.profile.name) {
+      return this.profile.name;
+    }
+    return 'unknown';
+  }
+});
+
 Template.editUser.events({
   'click #save': function(event, template) {
     $('#editUser'+this._id).modal('hide');
