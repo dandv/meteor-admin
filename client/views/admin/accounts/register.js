@@ -26,7 +26,7 @@ Template.register.events({
           if(isAdmin) {
             Router.go('users');
           } else {
-            Router.go('home');
+            Router.go('/');
           }
         }
       });

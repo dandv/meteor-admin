@@ -7,26 +7,21 @@
           <h4 class="modal-title">{{profile.name}} {{profile.surname}} <small>{{createdAt}}</small></h4>
         </div>
         <div class="modal-body">
-          <form class="form-vertical" id="siteSettingsForm">
-            <div class="control-group">
-              <label class="control-label" for="username">Username</label>
-              <div class="controls">
-                <input type="text" class="form-control" id="username{{_id}}" name="username"  value="{{username}}" placeholder="Username">
-              </div>
+          <div class="form-modal">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="username{{_id}}" name="username"  value="{{username}}" placeholder="Username">
             </div>
-            <div class="control-group">
-              <label class="control-label" for="name">Name</label>
-              <div class="controls">
-                <input type="text" class="form-control" id="name{{_id}}" name="name"  value="{{profile.name}}" placeholder="Name">
-              </div>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name{{_id}}" name="name"  value="{{profile.name}}" placeholder="Name">
             </div>
-            <div class="control-group">
-              <label class="control-label" for="admin">Admin</label>
-              <div class="controls">
-                <input type="checkbox" class="form-control" id="admin{{_id}}" name="admin" value={{admin}}>
-              </div>
+            <div class="form-group">
+              <label>
+                <input type="checkbox" id="admin{{_id}}" name="admin" {{isAdmin}}>Admin
+              </label>
             </div>
-          </form>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

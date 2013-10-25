@@ -15,9 +15,7 @@ Template.login.events({
   'click button, keyup input': function () {
     if (event.type === 'click' || (event.type === 'keyup' && event.which === 13)) {
       var loginSelector = trimmedElementValueById('username') || { email: trimmedElementValueById('email') };
-      console.log(loginSelector);
       var password = elementValueById('password');
-      console.log(password);
       Meteor.loginWithPassword(loginSelector, password, function(error, result) {
         if(error) {
           throwAlert(error.reason || "Unknown error", 'danger');
@@ -26,7 +24,7 @@ Template.login.events({
           if(isAdmin) {
             Router.go('users');
           } else {
-            Router.go('home');
+            Router.go('/');
           }
         }
       });

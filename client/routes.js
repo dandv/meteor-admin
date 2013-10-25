@@ -5,19 +5,28 @@ Router.map(function() {
   this.route('changeFullPage', { path: '/change' });
   this.route('users', { path: '/admin', controller: 'AdminController' });
   this.route('configs', { path: '/admin/configs', controller: 'ConfigsController' });
-  this.route('home', { path: '/' });
 });
 
 AdminController = RouteController.extend({
   loadingTemplate: 'adminLoading',
   notFoundTemplate: 'adminNotFound',
-  waitOn: function() {
-    return Meteor.subscribe('allUsers');
-  },
+  before: [
+    function() {
+      this.subscribe('allUsers').wait();
+    },
+    function() {
+      if(this.ready()) {
+        //NProgress.done();
+      } else {
+        //NProgress.start();
+        this.stop();
+      }
+    }
+  ],
   data: function() {
     return 'users';
   },
-  run: function () {
+  action: function () {
     var self = this;
     Meteor.call('admin', function(error, isAdmin) {
       if(isAdmin) {
@@ -33,13 +42,23 @@ AdminController = RouteController.extend({
 ConfigsController = RouteController.extend({
   loadingTemplate: 'adminLoading',
   notFoundTemplate: 'adminNotFound',
-  waitOn: function() {
-    return Meteor.subscribe('configs');
-  },
+  before: [
+    function() {
+      this.subscribe('configs').wait();
+    },
+    function() {
+      if(this.ready()) {
+        //NProgress.done();
+      } else {
+        //NProgress.start();
+        this.stop();
+      }
+    }
+  ],
   data: function() {
     return 'configs';
   },
-  run: function () {
+  action: function () {
     var self = this;
     Meteor.call('admin', function(error, isAdmin) {
       if(isAdmin) {

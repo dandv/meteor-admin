@@ -5,11 +5,8 @@ Package.describe({
 Package.on_use(function (api) {
   api.use(['standard-app-packages', 'accounts-base', 'accounts-password'], ['client','server']);
   api.use(['iron-router', 'font-awesome', 'less', 'bootstrap3-less', 'alert'], 'client');
-  // must use imply so that the parent app can use routes without explicitly adding it
-//  api.imply(['standard-app-packages', 'accounts-base', 'accounts-password', 'accounts-ui-unstyled', 'iron-router', 'font-awesome', 'less', 'bootstrap3-less']);
   api.add_files([
-    'client/subscriptions.js'
-    ,'client/routes.js'
+    'client/routes.js'
     ,'client/views/admin/forms/field.html'
     ,'client/views/admin/accounts/buttons.html'
     ,'client/views/admin/accounts/buttons.js'
@@ -39,7 +36,7 @@ Package.on_use(function (api) {
     ,'client/views/admin/users/users.js'
     ,'client/views/admin/users/user.html'
     ,'client/views/admin/users/user.js'
-    ,'client/styles/admin.less'
+    ,'client/styles/theme.less'
     ,'public/images/bg.jpg'
     ], 'client');
   api.add_files([
@@ -54,6 +51,7 @@ Package.on_use(function (api) {
   api.export([
     'AdminController'
     ,'ConfigsController'
+    ,'isAdmin'
   ], 'client');
   api.export([
     '_admin'

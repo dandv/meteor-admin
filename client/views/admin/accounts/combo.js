@@ -12,33 +12,40 @@ Template.combo.fields = function () {
   }];
 };
 Template.combo.events({
-  'click #login': function () {
-    var loginSelector = [];
-    var password = '';
-    Meteor.loginWithPassword(loginSelector, password, function(error, result) {
-      if(error) {
-        throwAlert(error.reason || 'Unknown error', 'danger');
-      } else {
-        Session.set('dropdown', undefined);
-      }
-    });
-  },
-  'click #register': function () {
-    var options = {
-      email: trimmedElementValueById('email')
-      ,password: elementValueById('password')
-    };
-    Accounts.createUser(options, function(error, result){
-      if(error) {
-        throwAlert(error.reason || "Unknown error", 'danger');
-      } else {
-        throwAlert('Successfully registered', 'info');
-        if(isAdmin) {
-          Router.go('users');
+  'click': function(e) {
+    e.stopPropagation();
+    if(e.currentTarget.getAttribute('id') === 'login') {
+      var loginSelector = trimmedElementValueById('username') || { email: trimmedElementValueById('email') };
+      var password = elementValueById('password');
+      Meteor.loginWithPassword(loginSelector, password, function(error, result) {
+        if(error) {
+          throwAlert(error.reason || 'Unknown error', 'danger');
         } else {
-          Router.go('home');
+          if(Meteor.user() && Meteor.user().admin) {
+            Router.go('users');
+          } else {
+            Router.go('/');
+          }
         }
-      }
-    });
+      });
+    }
+    if(e.currentTarget.getAttribute('id') === 'register') {
+      var options = {
+        email: trimmedElementValueById('email')
+        ,password: elementValueById('password')
+      };
+      Accounts.createUser(options, function(error, result){
+        if(error) {
+          throwAlert(error.reason || "Unknown error", 'danger');
+        } else {
+          throwAlert('Successfully registered', 'info');
+          if(Meteor.user() && Meteor.user().admin) {
+            Router.go('users');
+          } else {
+            Router.go('/');
+          }
+        }
+      });
+    }
   }
 });

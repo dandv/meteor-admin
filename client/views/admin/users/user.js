@@ -32,3 +32,9 @@ Template.editUser.events({
     Meteor.users.update({_id: this._id}, {$set: fields});
   }
 });
+
+Template.editUser.helpers({
+  isAdmin: function() {
+    return this.admin ? 'checked' : '';
+  }
+})

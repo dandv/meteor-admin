@@ -12,6 +12,7 @@ Template.admin.helpers({
   }
 });
 
+//broke
 isAdmin = function() {
   return Meteor.user() ? Meteor.user().admin : false;
 };

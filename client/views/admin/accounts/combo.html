@@ -1,4 +1,5 @@
 <template name="comboFullPage">
+{{>admin}}
   <div class="container">
     <div class="megatron">
       <div class="row">
@@ -17,9 +18,9 @@
     {{#each fields}}
       {{>field}}
     {{/each}}
-    {{>accountButtons}}
+    <button id="login" class="btn-admin btn-half">Login</button><button id="register" class="btn-admin btn-half">Register</button>
   </div>
   <div class="text-center">
-    <a href="/forgot">Forgot Password</a>
+    <a href="/forgot" class="text-primary">Forgot Password</a>
   </div>
 </template>
